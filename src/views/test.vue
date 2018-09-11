@@ -1,0 +1,37 @@
+<template>
+  <div class="center">
+    <div class="center box A">
+      <div class="center box B">
+        <div class="center box C">
+          <div class="box D"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<style scoped>
+  .center {
+    justify-content: center;
+    align-items: center;
+  }
+  .box {
+    background-color: rgba(0, 180, 255, 0.4);
+  }
+  .A {
+    width: 700px;
+    height: 700px;
+  }
+  .B {
+    width: 500px;
+    height: 500px;
+  }
+  .C {
+    width: 300px;
+    height: 300px;
+  }
+  .D {
+    width: 100px;
+    height: 100px;
+  }
+</style>
