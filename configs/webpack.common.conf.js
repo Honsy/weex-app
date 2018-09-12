@@ -11,7 +11,8 @@ const isWin = /^win/.test(process.platform);
 const weexEntry = {
   'index': path.resolve('src', 'entry.js'),
   'test': path.resolve('src', 'test.js'),
-  'navigator': path.resolve('src', 'navigator.js')
+  'navigator': path.resolve('src', 'navigator.js'),
+  'gcjs': path.resolve('src', 'gcjs.js'),
 }
 
 const getEntryFileContent = (source, routerpath) => {

@@ -1,7 +1,8 @@
 <template>
   <div class="wrapper">
-    <image :src="logo" class="logo" />
-    <text class="greeting">The environment is ready!</text>
+    <!-- <image :src="logo" class="logo" />
+    <text class="greeting">The envisonment is ready!</text> -->
+    <!-- <text class="text" @click="onItemClick">click me!</text> -->
     <router-view/>
   </div>
 </template>
@@ -12,6 +13,12 @@ export default {
   data () {
     return {
       logo: 'https://gw.alicdn.com/tfs/TB1yopEdgoQMeJjy1XaXXcSsFXa-640-302.png'
+    }
+  },
+  methods: {
+    onItemClick: function (e) {
+      console.log(this.$router)
+      this.$router.push('/CarCalculator')
     }
   }
 }

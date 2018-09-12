@@ -5,22 +5,22 @@
 </template>
 
 <script>
-  var navigator = weex.requireModule('navigator')
-  var modal = weex.requireModule('modal')
+var navigator = weex.requireModule('navigator')
+var modal = weex.requireModule('modal')
 
-  export default {
-    methods: {
-      jump (event) {
-        console.log('will jump')
-        navigator.push({
-          url: 'http://192.168.0.31:1500/index.js',
-          animated: "true"
-        }, event => {
-          modal.toast({ message: 'callback: ' + event })
-        })
-      }
+export default {
+  methods: {
+    jump (event) {
+      console.log('will jump')
+      navigator.push({
+        url: 'http://192.168.0.31:1500/index.js',
+        animated: 'true'
+      }, event => {
+        modal.toast({ message: 'callback: ' + event })
+      })
     }
-  };
+  }
+}
 </script>
 
 <style scoped>

@@ -2,6 +2,7 @@
 import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import Test from '@/views/test'
+import CarCalculator from '@/views/CarCalculator'
 
 Vue.use(Router)
 
@@ -12,9 +13,13 @@ module.exports = new Router({
       name: 'HelloWorld',
       component: HelloWorld
     }, {
-      path: '/',
+      path: '/Test',
       name: 'Test',
       component: Test
+    }, {
+      path: '/CarCalculator',
+      name: 'CarCalculator',
+      component: CarCalculator
     }
   ]
 })
