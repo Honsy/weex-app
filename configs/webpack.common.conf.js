@@ -10,8 +10,8 @@ const hasPluginInstalled = fs.existsSync(helper.rootNode(config.pluginFilePath))
 const isWin = /^win/.test(process.platform);
 const weexEntry = {
   'index': path.resolve('src', 'entry.js'),
-  'test': path.resolve('src', 'test.js')
-
+  'test': path.resolve('src', 'test.js'),
+  'navigator': path.resolve('src', 'navigator.js')
 }
 
 const getEntryFileContent = (source, routerpath) => {
