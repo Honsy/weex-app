@@ -9,7 +9,9 @@ const vueWebTemp = helper.rootNode(config.templateDir);
 const hasPluginInstalled = fs.existsSync(helper.rootNode(config.pluginFilePath));
 const isWin = /^win/.test(process.platform);
 const weexEntry = {
-  'index': helper.root('entry.js')
+  'index': path.resolve('src', 'entry.js'),
+  'test': path.resolve('src', 'test.js')
+
 }
 
 const getEntryFileContent = (source, routerpath) => {
@@ -94,7 +96,7 @@ const webConfig = {
     'vendor': [path.resolve('node_modules/phantom-limb/index.js')]
   }),
   output: {
-    path: helper.rootNode('./dist'),
+    path: helper.rootNode('./dist/web'),
     filename: '[name].web.js'
   },
   /**
@@ -126,7 +128,7 @@ const webConfig = {
         test: /\.vue(\?[^?]+)?$/,
         use: [{
           loader: 'vue-loader',
-          options: Object.assign(vueLoaderConfig({useVue: true, usePostCSS: false}), {
+          options: Object.assign(vueLoaderConfig({ useVue: true, usePostCSS: false }), {
             /**
              * important! should use postTransformNode to add $processStyle for
              * inline style prefixing.
@@ -138,7 +140,7 @@ const webConfig = {
                 el.styleBinding = `$processStyle(${el.styleBinding})`
               }
             }]
-            
+
           })
         }],
         exclude: config.excludeModuleReg
@@ -156,7 +158,7 @@ const webConfig = {
 const weexConfig = {
   entry: weexEntry,
   output: {
-    path: path.join(__dirname, '../dist'),
+    path: path.join(__dirname, '../dist', 'native'),
     filename: '[name].js'
   },
   /**
@@ -187,7 +189,7 @@ const weexConfig = {
         test: /\.vue(\?[^?]+)?$/,
         use: [{
           loader: 'weex-loader',
-          options: vueLoaderConfig({useVue: false})
+          options: vueLoaderConfig({ useVue: false })
         }],
         exclude: config.excludeModuleReg
       }
