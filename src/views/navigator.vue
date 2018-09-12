@@ -1,40 +1,45 @@
 <template>
-  <div class="div">
-    <text class="text" onclick="onItemClick">click me! {{message}}</text>
+  <div class="wrapper">
+    <text class="button" @click="jump">Jump</text>
   </div>
 </template>
+
 <script>
-var navigator = require('@weex-module/navigator')
-var nextUrl = 'http://dotwe.org/raw/dist/6cd1703a45d7b2752cf05303069ce881.js'
-module.exports = {
-  data: {
-    message: ''
-  },
-  methods: {
-    onItemClick: function (e) {
-      var params = {'url': nextUrl, 'animated': 'true'}
-      navigator.push(params, function (e) {
-        console.log('i am the callback.')
-      })
+  var navigator = weex.requireModule('navigator')
+  var modal = weex.requireModule('modal')
+
+  export default {
+    methods: {
+      jump (event) {
+        console.log('will jump')
+        navigator.push({
+          url: 'http://192.168.0.31:1500/index.js',
+          animated: "true"
+        }, event => {
+          modal.toast({ message: 'callback: ' + event })
+        })
+      }
     }
-  }
-}
+  };
 </script>
-<style>
-  .div {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 750;
-    height: 90;
-    padding-left:30;
-    padding-right:30;
-    border-bottom-width: 1;
-    border-style: solid;
-    border-color: #dddddd;
+
+<style scoped>
+  .wrapper {
+    flex-direction: column;
+    justify-content: center;
   }
-  .text{
-    width: 750;
-    height: 90;
+  .button {
+    font-size: 60px;
+    width: 450px;
+    text-align: center;
+    margin-top: 30px;
+    margin-left: 150px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-width: 2px;
+    border-style: solid;
+    color: #666666;
+    border-color: #DDDDDD;
+    background-color: #F5F5F5
   }
 </style>

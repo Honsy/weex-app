@@ -158,7 +158,7 @@ const webConfig = {
 const weexConfig = {
   entry: weexEntry,
   output: {
-    path: path.join(__dirname, '../dist', 'native'),
+    path: path.join(__dirname, '../dist', 'bundlejs'),
     filename: '[name].js'
   },
   /**

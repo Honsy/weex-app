@@ -31,6 +31,7 @@
     "phantom-limb": "0.0.1",
     "vue": "^2.5.11",
     "vue-router": "^3.0.1",
+    "weex-components": "^0.2.1",
     "weex-ui": "^0.6.6",
     "weex-vue-render": "^0.12.26"
   },
