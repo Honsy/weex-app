@@ -7,7 +7,7 @@
             <input class="js_input"  type="text" placeholder="输入价格">
         </wxc-cell>
         <wxc-cell label="贷款期限" :has-arrow="false" @wxcCellClicked="wxcCellClicked" :has-margin="true">
-            <text class="button" @click="pickTime">Pick Time</text>
+            <text class="button" @click="pickTime">Pisk Time</text>
         </wxc-cell>
         <wxc-cell label="年利率" :has-arrow="false" @wxcCellClicked="wxcCellClicked" :has-margin="true">
             <input class="js_input" type="text" placeholder="输入年利率">
@@ -62,9 +62,11 @@ export default {
     }
 
     .js_input {
-        background:red;
-        font-size: 60px;
-        height: 80px;
-        width: 70%;
+    width: 250px;
+    margin-right: 10px;
+    font-size: 30px;
+    padding: 20px;
+    color: #666666;
+    text-align: right;
     }
 </style>
