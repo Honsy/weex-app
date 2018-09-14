@@ -1,16 +1,16 @@
 <template>
     <div class="content">
         <wxc-cell label="车价" :has-arrow="false" @wxcCellClicked="wxcCellClicked" :has-margin="true">
-            <input type="text" placeholder="输入价格">
+            <input class="js_input"  type="text" placeholder="输入价格">
         </wxc-cell>
         <wxc-cell label="首付" :has-arrow="false" @wxcCellClicked="wxcCellClicked" :has-margin="true">
-            <input type="text" placeholder="输入价格">
+            <input class="js_input"  type="text" placeholder="输入价格">
         </wxc-cell>
         <wxc-cell label="贷款期限" :has-arrow="false" @wxcCellClicked="wxcCellClicked" :has-margin="true">
             <text class="button" @click="pickTime">Pick Time</text>
         </wxc-cell>
         <wxc-cell label="年利率" :has-arrow="false" @wxcCellClicked="wxcCellClicked" :has-margin="true">
-            <input type="text" placeholder="输入年利率">
+            <input class="js_input" type="text" placeholder="输入年利率">
         </wxc-cell>
         <wxc-button text="确定" @wxcButtonClicked="wxcButtonClicked"></wxc-button>
     </div>
@@ -35,7 +35,7 @@ export default {
   }),
   methods: {
     pickTime () {
-      picker.pick({items: ['1']}, {
+      picker.pickTime({
         value: this.value
       }, event => {
         if (event.result === 'success') {
@@ -61,7 +61,8 @@ export default {
         justify-content: flex-start;
     }
 
-    .content input {
+    .js_input {
+        background:red;
         font-size: 60px;
         height: 80px;
         width: 70%;
