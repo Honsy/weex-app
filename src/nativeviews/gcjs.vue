@@ -7,7 +7,7 @@
             <input type="text" placeholder="输入价格">
         </wxc-cell>
         <wxc-cell label="贷款期限" :has-arrow="false" @wxcCellClicked="wxcCellClicked" :has-margin="true">
-            <input type="text" placeholder="贷款期限">
+            <text class="button" @click="pickTime">Pick Time</text>
         </wxc-cell>
         <wxc-cell label="年利率" :has-arrow="false" @wxcCellClicked="wxcCellClicked" :has-margin="true">
             <input type="text" placeholder="输入年利率">
@@ -22,6 +22,8 @@ import {
   WxcCell
 } from 'weex-ui'
 
+const picker = weex.requireModule('picker')
+
 export default {
   name: 'gcjs',
   components: {
@@ -32,6 +34,15 @@ export default {
     isShow: false
   }),
   methods: {
+    pickTime () {
+      picker.pick({items: ['1']}, {
+        value: this.value
+      }, event => {
+        if (event.result === 'success') {
+          this.value = event.data
+        }
+      })
+    },
     wxcButtonClicked () {
       this.isShow = true
     },
@@ -50,9 +61,9 @@ export default {
         justify-content: flex-start;
     }
 
-    .input {
-    font-size: 60px;
-    height: 80px;
-    width: 750px;
-  }
+    .content input {
+        font-size: 60px;
+        height: 80px;
+        width: 70%;
+    }
 </style>
