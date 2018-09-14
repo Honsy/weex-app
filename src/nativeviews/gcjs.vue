@@ -50,4 +50,10 @@ export default {
     .content {
         justify-content: flex-start;
     }
+
+      .input {
+    font-size: 60px;
+    height: 80px;
+    width: 750px;
+  }
 </style>
