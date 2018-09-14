@@ -44,14 +44,13 @@ export default {
 <style>
     body>.weex-div {
         justify-content: flex-start !important;
-
     }
 
     .content {
         justify-content: flex-start;
     }
 
-      .input {
+    .input {
     font-size: 60px;
     height: 80px;
     width: 750px;
